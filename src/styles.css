@@ -1,0 +1,105 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0
+}
+
+.content {
+    /* background: blue; */
+    background-image: url(./assets/beautifulday.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: auto;
+    display: flex;
+}
+
+/* LEFT SIDE */
+
+.displaydiv {
+    height: 95%;
+    width: 60%;
+    /* background: pink; */
+    display: flex;
+    flex-direction: column;
+}
+
+.websitetitle {
+    background: gray;
+    width: fit-content;
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.locationdetails {
+    /* background: orange; */
+    height: 25%;
+    width: 1fr;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tempdisplay {
+    background: gray;
+    width: 100px;
+    height: 50px;
+}
+
+.citydisplay {
+    background: lightgray;
+    width: 100px;
+    height: 35px;
+}
+
+.timedatedisplay {
+    background: salmon;
+    height: 20px;
+    width: 100px;
+}
+
+.currentweather {
+    background: blue;
+    height: 35px;
+    width: 75px;
+    color: white;
+}
+
+/* RIGHT SIDE */
+
+.infodiv {
+    background: rgba(0, 200 , 225, 0.4);
+    width: 40%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.locationlookup {
+    display: flex;
+    width: 80%;
+}
+
+.locationsearch {
+    background: red;
+    width: 75%;
+}
+
+.weatherdetails {
+    height: 125px;
+    width: 80%;
+    background: yellow;
+}
+
+.forecast {
+    background: purple;
+    color: white;
+    height: 175px;
+    width: 80%;
+}
