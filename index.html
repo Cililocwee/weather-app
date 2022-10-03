@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="../src/styles.css">
 </head>
 
 <body>
@@ -15,7 +16,14 @@
                 <p>Weather</p>
             </div>
             <div class="locationdetails">
-                <div class="tempdisplay" id="temp"></div>
+                <div class="tempswitch">
+                    <div class="temptoggle">
+                        <button id="fahrenheit">F</button>
+                        <button id="celsius">C</button>
+                    </div>
+                    <div class="tempdisplay" id="tempC"></div>
+                    <div class="tempdisplay" id="tempF"></div>
+                </div>
                 <div class="citytimeanddate">
                     <div class="citydisplay" id="city"></div>
                     <div class="timedatedisplay" id="timedatedisplay"></div>
@@ -25,18 +33,29 @@
         </div>
         <div class="infodiv">
             <div class="locationlookup">
-                <input type="text" name="locationsearch" id="locationsearch">
+                <div class="omrs-input-group">
+                    <label class="omrs-input-underlined">
+                      <input id="locationsearch" required>
+                      <span class="omrs-input-label">City</span>
+                        <span class="omrs-input-helper">Search for a city...</span>
+                    </label>
+                </div>
+
+                <!-- <label for="locationsearch" id="locationsearchlabel" class="omrs-input-underlined"></label> -->
+                <!-- <input type="text" name="locationsearch" id="locationsearch"> -->
                 <button id="searchbutton">Search</button>
             </div>
-            <div class="weatherdetails">It's humid and high pressure</div>
-            <div class="forecast">It will continue to rain... forever</div>
+            <div class="weatherdetails" id="weatherdetails">It's humid and high pressure</div>
+            <div class="forecast" id="forecast">It will continue to rain... forever</div>
         </div>
     </div>
 
 
 
     <!-- Photo by <a href="https://unsplash.com/@12photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">12photostory</a> on <a href="https://unsplash.com/s/photos/beautiful-sky-day?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-  
+    <!-- Photo by <a href="https://unsplash.com/@abingol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Atilla Bingöl</a> on <a href="https://unsplash.com/s/photos/heavy-rain?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
+    <!-- Photo by <a href="https://unsplash.com/@onnos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Adriana Sas</a> on <a href="https://unsplash.com/s/photos/cloudy-day?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
+
     <script src="bundle.js"></script>
 </body>
 
