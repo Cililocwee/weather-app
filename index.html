@@ -15,18 +15,18 @@
                 <p>Weather</p>
             </div>
             <div class="locationdetails">
-                <div class="tempdisplay">23C</div>
+                <div class="tempdisplay" id="temp"></div>
                 <div class="citytimeanddate">
-                    <div class="citydisplay">Paducah, KY</div>
-                    <div class="timedatedisplay">Apr. 2 2022</div>
+                    <div class="citydisplay" id="city"></div>
+                    <div class="timedatedisplay" id="timedatedisplay"></div>
                 </div>
-                <div class="currentweather">It Rainin'</div>
+                <div class="currentweather" id="basicweather"></div>
             </div>
         </div>
         <div class="infodiv">
             <div class="locationlookup">
-                <div class="locationsearch">Where...?</div>
-                <div class="searchbutton">Search</div>
+                <input type="text" name="locationsearch" id="locationsearch">
+                <button id="searchbutton">Search</button>
             </div>
             <div class="weatherdetails">It's humid and high pressure</div>
             <div class="forecast">It will continue to rain... forever</div>
