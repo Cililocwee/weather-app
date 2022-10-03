@@ -1,16 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+    font-family: "Roboto";
+}
+
+:root {
+    --omrs-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
+    --omrs-color-ink-low-contrast: rgba(60, 60, 67, 0.3);
+    --omrs-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
+    --omrs-color-interaction: #1e4bd1;
+    --omrs-color-interaction-minus-two: rgba(73, 133, 224, 0.12);
+    --omrs-color-danger: #b50706;
+    --omrs-color-bg-low-contrast: #eff1f2;
+    --omrs-color-ink-high-contrast: #121212;
+    --omrs-color-bg-high-contrast: #ffffff;
+
+}
+
+/* Input*/
+.omrs-input-underlined > input,
+.omrs-input-filled > input {
+	border: none;
+	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+	width: 80%;
+	height: 2rem;
+	font-size: 1.0625rem;
+	padding-left: 0.875rem;
+	line-height: 147.6%;
+	padding-top: 0.825rem;
+	padding-bottom: 0.5rem;
+    border-top-left-radius: 16px;
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.omrs-input-underlined > input:focus,
+.omrs-input-filled > input:focus {
+	outline: none;
+}
+
+.omrs-input-underlined > .omrs-input-label,
+.omrs-input-filled > .omrs-input-label {
+	position: absolute;
+	top: 0.9375rem;
+	left: 0.875rem;
+	line-height: 147.6%;
+	color: var(--omrs-color-ink-medium-contrast);
+	transition: top .2s;
+}
+
+.omrs-input-underlined > svg,
+.omrs-input-filled > svg {
+	position: absolute;
+	top: 0.9375rem;
+	right: 0.875rem;
+	fill: var(--omrs-color-ink-medium-contrast);
+}
+
+.omrs-input-underlined > .omrs-input-helper,
+.omrs-input-filled > .omrs-input-helper {
+	font-size: 0.9375rem;
+	color: var(--omrs-color-ink-medium-contrast);
+	letter-spacing: 0.0275rem;
+	margin: 0.125rem 0.875rem;
+}
+
+.omrs-input-underlined > input:hover,
+.omrs-input-filled > input:hover {
+	background: var(--omrs-color-interaction-minus-two);
+	border-color: var(--omrs-color-ink-high-contrast);
+}
+
+.omrs-input-underlined > input:focus + .omrs-input-label,
+.omrs-input-underlined > input:valid + .omrs-input-label,
+.omrs-input-filled > input:focus + .omrs-input-label,
+.omrs-input-filled > input:valid + .omrs-input-label {
+	top: 0;
+	font-size: 0.9375rem;
+	margin-bottom: 32px;;
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus + .omrs-input-label {
+	color: var(--omrs-color-interaction);
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus {
+	border-color: var(--omrs-color-interaction);
+}
+
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus ~ svg,
+.omrs-input-filled:not(.omrs-input-danger) > input:focus ~ svg {
+	fill: var(--omrs-color-ink-high-contrast);
+}
+
 body,
 html {
     height: 100%;
     width: 100%;
-    margin: 0
+    margin: 0;
+    --shadow-default: text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.content {
-    /* background: blue; */
+.rainy {
+    background-image: url(./assets/rainyday.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sunny {
     background-image: url(./assets/beautifulday.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.cloudy {
+    background-image: url(./assets/cloudyday.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    /* background: blue; */
+
     height: 100%;
     width: auto;
     display: flex;
@@ -61,6 +176,20 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.43);
 }
 
+.temptoggle {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#tempF {
+    display: none;
+}
+
+#tempC {
+    display: block;
+}
+
 .tempdisplay {
     /* background: gray; */
     width: fit-content;
@@ -68,8 +197,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5em;
+    font-size: 6em;
     color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .citydisplay {
@@ -81,7 +211,8 @@ html {
     height: fit-content;
     color: white;
     margin-bottom: 5px;
-    font-size: 1.5em;
+    font-size: 2em;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .timedatedisplay {
@@ -92,6 +223,8 @@ html {
     height: fit-content;
     width: fit-content;
     color: white;
+    font-size: 1.5em;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .currentweather {
@@ -102,10 +235,12 @@ html {
     height: 35px;
     width: 75px;
     color: white;
+    font-size: 1.75em;
 }
 
 #basicweather {
     text-transform: capitalize;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /* RIGHT SIDE */
@@ -131,7 +266,7 @@ html {
 
 
 
-#locationsearch {
+/* #locationsearch {
     width: 60%;
     height: 60%;
     margin: auto;
@@ -141,7 +276,7 @@ html {
     backdrop-filter: blur(4.5px);
     -webkit-backdrop-filter: blur(4.5px);
     border: 1px solid rgba(255, 255, 255, 0.43);
-}
+} */
 
 .locationlookup {
     display: flex;
@@ -151,14 +286,19 @@ html {
 
 .locationsearch {
     margin-top: 10px;
-    /* background: red; */
     width: 100%;
     margin-bottom: 5px;
     display: flex;
+    background: rgba(255, 255, 255, 0.33);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border: 1px solid rgba(255, 255, 255, 0.43);
 }
 
 #searchbutton {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.11);
     /* Green */
     border: none;
     color: black;
@@ -169,18 +309,26 @@ html {
     font-size: 16px;
     border-top-right-radius: 16px;
     margin-left: auto;
+    height: 3.45em;
+    border-bottom: 2px dotted var(--omrs-color-ink-medium-contrast);
+    border-left: 2px dotted var(--omrs-color-ink-medium-contrast);
+    border-bottom-left-radius: 16px;
 }
 
 .weatherdetails {
     height: 125px;
-    width: 100%;
-    background: yellow;
+    width: 80%;
+    /* background: yellow; */
     margin-bottom: 10px;
+    padding: 10px;
+    gap: 10px;
+    border-bottom: 1px solid white;
+    font-size: 1.25em;
 }
 
 .forecast {
     background: purple;
     color: white;
     height: 175px;
-    width: 100%;
+    width: 80%;
 }
