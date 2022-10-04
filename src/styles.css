@@ -18,64 +18,66 @@
 }
 
 /* Input*/
-.omrs-input-underlined > input {
-	border: none;
-	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
-	width: 80%;
-	height: 2rem;
-	font-size: 1.0625rem;
-	padding-left: 0.875rem;
-	line-height: 147.6%;
-	padding-top: 0.825rem;
-	padding-bottom: 0.5rem;
+.omrs-input-underlined>input {
+    border: none;
+    border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+    width: 80%;
+    height: 2rem;
+    font-size: 1.0625rem;
+    padding-left: 0.875rem;
+    line-height: 147.6%;
+    padding-top: 0.825rem;
+    padding-bottom: 0.5rem;
     border-top-left-radius: 16px;
     background: rgba(255, 255, 255, 0.11);
 }
 
-.omrs-input-underlined > input:focus {
-	outline: none;
+.omrs-input-underlined>input:focus {
+    outline: none;
 }
 
-.omrs-input-underlined > .omrs-input-label {
-	position: absolute;
-	top: 0.9375rem;
-	left: 0.875rem;
-	line-height: 147.6%;
-	color: var(--omrs-color-ink-medium-contrast);
-	transition: top .2s;
+.omrs-input-underlined>.omrs-input-label {
+    position: absolute;
+    top: 0.9375rem;
+    left: 0.875rem;
+    line-height: 147.6%;
+    color: var(--omrs-color-ink-medium-contrast);
+    transition: top .2s;
 }
 
-.omrs-input-underlined > .omrs-input-helper{
-	font-size: 0.9375rem;
-	color: var(--omrs-color-ink-medium-contrast);
-	letter-spacing: 0.0275rem;
-	margin: 0.125rem 0.875rem;
+.omrs-input-underlined>.omrs-input-helper {
+    font-size: 0.9375rem;
+    color: var(--omrs-color-ink-medium-contrast);
+    letter-spacing: 0.0275rem;
+    margin: 0.125rem 0.875rem;
 }
 
-.omrs-input-underlined > input:hover {
-	background: var(--omrs-color-interaction-minus-two);
-	border-color: var(--omrs-color-ink-high-contrast);
+.omrs-input-underlined>input:hover {
+    background: var(--omrs-color-interaction-minus-two);
+    border-color: var(--omrs-color-ink-high-contrast);
 }
 
-.omrs-input-underlined > input:focus + .omrs-input-label,
-.omrs-input-underlined > input:valid + .omrs-input-label {
-	top: 0;
-	font-size: 0.9375rem;
-	margin-bottom: 32px;;
+.omrs-input-underlined>input:focus+.omrs-input-label,
+.omrs-input-underlined>input:valid+.omrs-input-label {
+    top: 0;
+    font-size: 0.9375rem;
+    margin-bottom: 32px;
+    ;
 }
 
-.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label {
-	color: var(--omrs-color-interaction);
+.omrs-input-underlined:not(.omrs-input-danger)>input:focus+.omrs-input-label {
+    color: var(--omrs-color-interaction);
 }
 
-.omrs-input-underlined:not(.omrs-input-danger) > input:focus {
-	border-color: var(--omrs-color-interaction);
+.omrs-input-underlined:not(.omrs-input-danger)>input:focus {
+    border-color: var(--omrs-color-interaction);
 }
 
 body,
 html {
     height: 100%;
     width: 100%;
+    min-width: 1000px;
     margin: 0;
     --shadow-default: text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
@@ -122,12 +124,12 @@ html {
 .websitetitle {
     /* background: gray; */
     width: fit-content;
-    height: 35px;
-    padding: 3px;
+    height: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    margin-left: 5px;
-    margin-top: 5px;
+    margin-left: 15px;
+    margin-top: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(4.5px);
@@ -136,7 +138,6 @@ html {
 }
 
 .locationdetails {
-    /* background: orange; */
     height: 25%;
     width: 1fr;
     margin-top: auto;
@@ -169,7 +170,6 @@ html {
 }
 
 .tempdisplay {
-    /* background: gray; */
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -184,7 +184,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: lightgray; */
     width: fit-content;
     height: fit-content;
     color: white;
@@ -197,7 +196,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: salmon; */
     height: fit-content;
     width: fit-content;
     color: white;
@@ -209,7 +207,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: blue; */
     height: 35px;
     width: 75px;
     color: white;
@@ -229,7 +226,7 @@ html {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;    
+    font-size: 16px;
     height: 3em;
     margin: 5px;
     border-radius: 10px;
@@ -239,7 +236,7 @@ html {
 
 .infodiv {
     width: 30%;
-    height: 1fr;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -298,12 +295,66 @@ html {
     border-bottom: 1px solid white;
     font-size: 1.25em;
     color: var(--omrs-color-ink-medium-contrast);
-    /* border: 3px solid var(--omrs-color-ink-medium-contrast); */
-    /* border-radius: 10px; */
     padding: 20px;
     text-transform: capitalize;
     text-align: center;
     line-height: 1.7;
+}
+
+.tempasF {
+    display: none;
+}
+
+#dailyforecast,
+#hourlyforecast {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#dailyforecast {
+    display: flex;
+}
+
+#hourlyforecast {
+    display: none;
+}
+
+.forecasttogglediv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.dailyforecastbutton,
+.hourlyforecastbutton {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.11);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    height: 2.5em;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dailyforecastbutton {
+    border-bottom-left-radius: 16px;
+    margin-right: auto;
+    border-right: 2px dotted var(--omrs-color-ink-medium-contrast);
+}
+
+.hourlyforecastbutton {
+    border-bottom-right-radius: 16px;
+    margin-left: auto;
 }
 
 .forecast {

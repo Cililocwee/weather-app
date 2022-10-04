@@ -1,5 +1,5 @@
 import './styles.css'
-import { format, fromUnixTime } from 'date-fns';
+import { format } from 'date-fns';
 
 // finds basic information about the city
 function weatherBalloon(city) {
@@ -20,12 +20,18 @@ function forecastBalloon(city) {
     fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + key)
         .then(function (response) { return response.json() })
         .then(function (data) {
-            console.log(data)
-            drawForecast(data, 7)
-            drawForecast(data, 15)
-            drawForecast(data, 23)
-            drawForecast(data, 31)
-            drawForecast(data, 39)
+            // daily (5 days) forecast
+            drawForecast(data, 7, 0)
+            drawForecast(data, 15, 0)
+            drawForecast(data, 23, 0)
+            drawForecast(data, 31, 0)
+            drawForecast(data, 39, 0)
+            // hourly (3 hours) forecast
+            drawForecast(data, 0, 1)
+            drawForecast(data, 1, 1)
+            drawForecast(data, 2, 1)
+            drawForecast(data, 3, 1)
+            drawForecast(data, 4, 1)
         })
         .catch(function () {
             console.log('Error in forecastBalloon')
@@ -60,20 +66,26 @@ function drawCurrentWeather(data) {
     }
 }
 
-function drawForecast(data, fieldindicator) {
+function drawForecast(data, fieldindicator, interval) {
     const celcius = Math.round(parseFloat(data.list[fieldindicator].main.temp - 273.15));
     const fahrenheit = Math.round(((parseFloat(data.list[fieldindicator].main.temp) - 273.15) * 1.8) + 32);
-    
-    let tempasF = 'Temp: ' + fahrenheit + '℉<br>';
-    let tempasC = 'Temp: ' + celcius + '℃<br>';
+
+    let tempasF = '<span class="tempasF">Temp: ' + fahrenheit + '℉<br></span>';
+    let tempasC = '<span class="tempasC">Temp: ' + celcius + '℃<br></span>';
 
     let field = 'forecast' + fieldindicator;
     const forecastfield = document.getElementById(field);
+    let datetime;
 
-    let datetime = format(data.list[fieldindicator].dt * 1000, 'eeee, MMM do') + "<br>";
+    if (interval === 0) {
+        datetime = format(data.list[fieldindicator].dt * 1000, 'eeee, MMM do') + "<br>";
+    } else if (interval === 1) {
+        datetime = format(data.list[fieldindicator].dt * 1000, 'haaa (B)') + "<br>";
+    }
+
     let weather = data.list[fieldindicator].weather[0].description + "<br>";
-    
-    forecastfield.innerHTML = datetime + tempasC + weather;
+
+    forecastfield.innerHTML = datetime + tempasC + tempasF + weather;
 
     // change the theme based on predominant weather
     if (data.list[fieldindicator].weather[0].description.indexOf('rain') > 0) {
@@ -91,11 +103,30 @@ const celsiusbutton = document.getElementById('celsius');
 fahrentheitbutton.onclick = function () {
     document.getElementById('tempC').style.display = "none";
     document.getElementById('tempF').style.display = "block";
+
+
+    let tempClist = document.querySelectorAll('.tempasC');
+    for (let i = 0; i < tempClist.length; i++) {
+        tempClist[i].style.display = "none";
+    }
+    let tempFlist = document.querySelectorAll('.tempasF');
+    for (let i = 0; i < tempFlist.length; i++) {
+        tempFlist[i].style.display = "block"
+    }
 }
 
 celsiusbutton.onclick = function () {
     document.getElementById('tempF').style.display = "none";
     document.getElementById('tempC').style.display = "block";
+
+    let tempFlist = document.querySelectorAll('.tempasF');
+    for (let i = 0; i < tempFlist.length; i++) {
+        tempFlist[i].style.display = "none"
+    }
+    let tempClist = document.querySelectorAll('.tempasC');
+    for (let i = 0; i < tempClist.length; i++) {
+        tempClist[i].style.display = "block";
+    }
 }
 
 
@@ -105,7 +136,27 @@ searchbutton.onclick = function () {
     weatherBalloon(searchfield.value);
     forecastBalloon(searchfield.value)
 }
+searchfield.addEventListener('keypress', (event) =>{
+    if(event.key === 'Enter'){
+        searchbutton.click();
+    }
+})
+
+const dailytoggle = document.getElementById('dailyforecastbutton');
+const hourlytoggle = document.getElementById('hourlyforecastbutton');
+
+hourlytoggle.onclick = function () {
+    document.getElementById('hourlyforecast').style.display = "flex";
+    document.getElementById('dailyforecast').style.display = "none";
+}
+
+dailytoggle.onclick = function () {
+    document.getElementById('hourlyforecast').style.display = "none";
+    document.getElementById('dailyforecast').style.display = "flex";
+}
+
 window.onload = function () {
     weatherBalloon('Singapore')
     forecastBalloon('Singapore')
 }
+
