@@ -13,31 +13,17 @@ function weatherBalloon(city) {
         });
 }
 
-// get the coords
-function geoFinder(city) {
+
+function forecast(city) {
     const key = 'ac2373632ada2ab860f80267dd225122';
-    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=5&appid=' + key)
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + key)
         .then(function (response) { return response.json() })
         .then(function (data) {
-            foreCaster(data[0].lat, data[0].lon);
+            //foreCaster(data[0].lat, data[0].lon);
+            console.log(data)
         })
         .catch(function () {
             console.log('Error: Needs location')
-        })
-}
-
-// use the coords to get the forecast
-function foreCaster(lat,lon) {
-    const key = 'ac2373632ada2ab860f80267dd225122';
-
-    fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + "&appid=" + key)
-        .then(function (response) { return response.json() })
-        .then(function (data) {
-            console.log(data)
-            return data;
-        })
-        .catch(function() {
-            console.log('Error in forecaster');
         })
 }
 
@@ -86,8 +72,9 @@ const searchbutton = document.getElementById('searchbutton');
 let searchfield = document.getElementById('locationsearch');
 searchbutton.onclick = function () {
     weatherBalloon(searchfield.value);
+    forecast(searchfield.value)
 }
 window.onload = function () {
     weatherBalloon('Singapore')
-    geoFinder('Singapore')
+    forecast('Singapore')
 }
