@@ -1,5 +1,5 @@
 import './styles.css'
-import { format } from 'date-fns';
+import { format, fromUnixTime } from 'date-fns';
 
 // finds basic information about the city
 function weatherBalloon(city) {
@@ -21,7 +21,11 @@ function forecastBalloon(city) {
         .then(function (response) { return response.json() })
         .then(function (data) {
             console.log(data)
-            drawForecast(data)
+            drawForecast(data, 7)
+            drawForecast(data, 15)
+            drawForecast(data, 23)
+            drawForecast(data, 31)
+            drawForecast(data, 39)
         })
         .catch(function () {
             console.log('Error in forecastBalloon')
@@ -32,11 +36,11 @@ function drawCurrentWeather(data) {
     const celcius = Math.round(parseFloat(data.main.temp) - 273.15);
     const fahrenheit = Math.round(((parseFloat(data.main.temp) - 273.15) * 1.8) + 32);
 
-    let tempasF = fahrenheit + '&deg;';
-    let tempasC = celcius + '&deg;';
+    let tempasF = fahrenheit + '℉';
+    let tempasC = celcius + '℃';
 
-    let humidity = `Current Humidity: ${data.main.humidity}<br>`;
-    let windspeed = `Windspeed: ${data.wind.speed}<br>`;
+    let humidity = `Current Humidity: ${data.main.humidity}%<br>`;
+    let windspeed = `Windspeed: ${data.wind.speed} Km/h<br>`;
     let pressure = `Air Pressure: ${data.main.pressure}<br>`;
 
     document.getElementById('weatherdetails').innerHTML = humidity + windspeed + pressure;
@@ -56,13 +60,31 @@ function drawCurrentWeather(data) {
     }
 }
 
-function drawForecast(data) {
-    const forecastfield = document.getElementById('forecast');
+function drawForecast(data, fieldindicator) {
+    const celcius = Math.round(parseFloat(data.list[fieldindicator].main.temp - 273.15));
+    const fahrenheit = Math.round(((parseFloat(data.list[fieldindicator].main.temp) - 273.15) * 1.8) + 32);
+    
+    let tempasF = 'Temp: ' + fahrenheit + '℉<br>';
+    let tempasC = 'Temp: ' + celcius + '℃<br>';
 
-    let datetime1 = data.list[0].dt_txt;
-    forecastfield.innerHTML = datetime1;
+    let field = 'forecast' + fieldindicator;
+    const forecastfield = document.getElementById(field);
 
+    let datetime = format(data.list[fieldindicator].dt * 1000, 'eeee, MMM do') + "<br>";
+    let weather = data.list[fieldindicator].weather[0].description + "<br>";
+    
+    forecastfield.innerHTML = datetime + tempasC + weather;
+
+    // change the theme based on predominant weather
+    if (data.list[fieldindicator].weather[0].description.indexOf('rain') > 0) {
+        forecastfield.className = 'forecastrainy';
+    } else if (data.list[fieldindicator].weather[0].description.indexOf('cloud') > 0) {
+        forecastfield.className = 'forecastcloudy';
+    } else {
+        forecastfield.className = 'forecastsunny';
+    }
 }
+
 const fahrentheitbutton = document.getElementById('fahrenheit');
 const celsiusbutton = document.getElementById('celsius');
 

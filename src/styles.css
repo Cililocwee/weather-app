@@ -157,7 +157,7 @@ html {
 .temptoggle {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    justify-content: center;
 }
 
 #tempF {
@@ -221,10 +221,23 @@ html {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.togglebutton {
+    background: rgba(255, 255, 255, 0.11);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+    height: 3em;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 /* RIGHT SIDE */
 
 .infodiv {
-    /* background: rgba(0, 200, 225, 0.4); */
     width: 30%;
     height: 1fr;
     display: flex;
@@ -241,20 +254,6 @@ html {
     -webkit-backdrop-filter: blur(4.5px);
     border: 1px solid rgba(255, 255, 255, 0.43);
 }
-
-
-
-/* #locationsearch {
-    width: 60%;
-    height: 60%;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.33);
-    border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.5px);
-    -webkit-backdrop-filter: blur(4.5px);
-    border: 1px solid rgba(255, 255, 255, 0.43);
-} */
 
 .locationlookup {
     display: flex;
@@ -277,7 +276,6 @@ html {
 
 #searchbutton {
     background: rgba(255, 255, 255, 0.11);
-    /* Green */
     border: none;
     color: black;
     padding: 15px 32px;
@@ -294,19 +292,75 @@ html {
 }
 
 .weatherdetails {
-    height: 125px;
+    height: fit-content;
     width: 80%;
-    /* background: yellow; */
     margin-bottom: 10px;
-    padding: 10px;
-    gap: 10px;
     border-bottom: 1px solid white;
     font-size: 1.25em;
+    color: var(--omrs-color-ink-medium-contrast);
+    /* border: 3px solid var(--omrs-color-ink-medium-contrast); */
+    /* border-radius: 10px; */
+    padding: 20px;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1.7;
 }
 
 .forecast {
-    background: purple;
+    background: gray;
     color: white;
-    height: 175px;
+    height: fit-content;
     width: 80%;
+    border: 3px solid var(--omrs-color-ink-high-contrast);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.forecastsunny {
+    background: rgba(255, 246, 143, 0.60);
+    background-image: url(../src/assets/sunny.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--omrs-color-ink-medium-contrast);
+    height: fit-content;
+    width: 80%;
+    border: 3px solid var(--omrs-color-ink-low-contrast);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    text-transform: capitalize;
+}
+
+.forecastrainy {
+    background: rgba(149, 165, 166, 0.60);
+    background-image: url(../src/assets/rainy.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--omrs-color-ink-medium-contrast);
+    height: fit-content;
+    width: 80%;
+    border: 3px solid var(--omrs-color-ink-high-contrast);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    text-transform: capitalize;
+}
+
+.forecastcloudy {
+    background: rgba(228, 233, 237, 0.60);
+    background-image: url(../src/assets/cloudy.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--omrs-color-ink-medium-contrast);
+    height: fit-content;
+    width: 80%;
+    border: 3px solid var(--omrs-color-ink-medium-contrast);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    text-transform: capitalize;
 }
