@@ -1,8 +1,6 @@
 import './styles.css'
 import { format } from 'date-fns';
 
-// http://api.openweathermap.org/data/2.5/weather?q=Vietnam&APPID=ac2373632ada2ab860f80267dd225122
-
 function weatherBalloon(city) {
     const key = 'ac2373632ada2ab860f80267dd225122';
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key)
@@ -13,6 +11,34 @@ function weatherBalloon(city) {
         .catch(function () {
             console.log('Error: Needs location')
         });
+}
+
+// get the coords
+function geoFinder(city) {
+    const key = 'ac2373632ada2ab860f80267dd225122';
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=5&appid=' + key)
+        .then(function (response) { return response.json() })
+        .then(function (data) {
+            foreCaster(data[0].lat, data[0].lon);
+        })
+        .catch(function () {
+            console.log('Error: Needs location')
+        })
+}
+
+// use the coords to get the forecast
+function foreCaster(lat,lon) {
+    const key = 'ac2373632ada2ab860f80267dd225122';
+
+    fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + "&appid=" + key)
+        .then(function (response) { return response.json() })
+        .then(function (data) {
+            console.log(data)
+            return data;
+        })
+        .catch(function() {
+            console.log('Error in forecaster');
+        })
 }
 
 function drawWeather(d) {
@@ -63,4 +89,5 @@ searchbutton.onclick = function () {
 }
 window.onload = function () {
     weatherBalloon('Singapore')
+    geoFinder('Singapore')
 }

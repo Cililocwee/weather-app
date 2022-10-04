@@ -18,8 +18,7 @@
 }
 
 /* Input*/
-.omrs-input-underlined > input,
-.omrs-input-filled > input {
+.omrs-input-underlined > input {
 	border: none;
 	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
 	width: 80%;
@@ -33,13 +32,11 @@
     background: rgba(255, 255, 255, 0.11);
 }
 
-.omrs-input-underlined > input:focus,
-.omrs-input-filled > input:focus {
+.omrs-input-underlined > input:focus {
 	outline: none;
 }
 
-.omrs-input-underlined > .omrs-input-label,
-.omrs-input-filled > .omrs-input-label {
+.omrs-input-underlined > .omrs-input-label {
 	position: absolute;
 	top: 0.9375rem;
 	left: 0.875rem;
@@ -48,50 +45,31 @@
 	transition: top .2s;
 }
 
-.omrs-input-underlined > svg,
-.omrs-input-filled > svg {
-	position: absolute;
-	top: 0.9375rem;
-	right: 0.875rem;
-	fill: var(--omrs-color-ink-medium-contrast);
-}
-
-.omrs-input-underlined > .omrs-input-helper,
-.omrs-input-filled > .omrs-input-helper {
+.omrs-input-underlined > .omrs-input-helper{
 	font-size: 0.9375rem;
 	color: var(--omrs-color-ink-medium-contrast);
 	letter-spacing: 0.0275rem;
 	margin: 0.125rem 0.875rem;
 }
 
-.omrs-input-underlined > input:hover,
-.omrs-input-filled > input:hover {
+.omrs-input-underlined > input:hover {
 	background: var(--omrs-color-interaction-minus-two);
 	border-color: var(--omrs-color-ink-high-contrast);
 }
 
 .omrs-input-underlined > input:focus + .omrs-input-label,
-.omrs-input-underlined > input:valid + .omrs-input-label,
-.omrs-input-filled > input:focus + .omrs-input-label,
-.omrs-input-filled > input:valid + .omrs-input-label {
+.omrs-input-underlined > input:valid + .omrs-input-label {
 	top: 0;
 	font-size: 0.9375rem;
 	margin-bottom: 32px;;
 }
 
-.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label,
-.omrs-input-filled:not(.omrs-input-danger) > input:focus + .omrs-input-label {
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus + .omrs-input-label {
 	color: var(--omrs-color-interaction);
 }
 
-.omrs-input-underlined:not(.omrs-input-danger) > input:focus,
-.omrs-input-filled:not(.omrs-input-danger) > input:focus {
+.omrs-input-underlined:not(.omrs-input-danger) > input:focus {
 	border-color: var(--omrs-color-interaction);
-}
-
-.omrs-input-underlined:not(.omrs-input-danger) > input:focus ~ svg,
-.omrs-input-filled:not(.omrs-input-danger) > input:focus ~ svg {
-	fill: var(--omrs-color-ink-high-contrast);
 }
 
 body,
