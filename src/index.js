@@ -77,6 +77,7 @@ function drawForecast(data, fieldindicator, interval) {
     const forecastfield = document.getElementById(field);
     let datetime;
 
+    // interval designates whether to draw daily (0) or tri-hourly (1)
     if (interval === 0) {
         datetime = format(data.list[fieldindicator].dt * 1000, 'eeee, MMM do') + "<br>";
     } else if (interval === 1) {
@@ -97,13 +98,11 @@ function drawForecast(data, fieldindicator, interval) {
     }
 }
 
+// Finds and adds functionality to the F button
 const fahrentheitbutton = document.getElementById('fahrenheit');
-const celsiusbutton = document.getElementById('celsius');
-
 fahrentheitbutton.onclick = function () {
     document.getElementById('tempC').style.display = "none";
     document.getElementById('tempF').style.display = "block";
-
 
     let tempClist = document.querySelectorAll('.tempasC');
     for (let i = 0; i < tempClist.length; i++) {
@@ -115,6 +114,8 @@ fahrentheitbutton.onclick = function () {
     }
 }
 
+// Finds and adds functionality to the C button
+const celsiusbutton = document.getElementById('celsius');
 celsiusbutton.onclick = function () {
     document.getElementById('tempF').style.display = "none";
     document.getElementById('tempC').style.display = "block";
@@ -129,34 +130,37 @@ celsiusbutton.onclick = function () {
     }
 }
 
-
+// Finds and adds functionality to the search button
 const searchbutton = document.getElementById('searchbutton');
-let searchfield = document.getElementById('locationsearch');
 searchbutton.onclick = function () {
     weatherBalloon(searchfield.value);
     forecastBalloon(searchfield.value)
 }
+
+// Finds and adds functionality to the input field
+const searchfield = document.getElementById('locationsearch');
 searchfield.addEventListener('keypress', (event) =>{
     if(event.key === 'Enter'){
         searchbutton.click();
     }
 })
 
+// Finds and adds functionality to the daily forecast button
 const dailytoggle = document.getElementById('dailyforecastbutton');
-const hourlytoggle = document.getElementById('hourlyforecastbutton');
-
-hourlytoggle.onclick = function () {
-    document.getElementById('hourlyforecast').style.display = "flex";
-    document.getElementById('dailyforecast').style.display = "none";
-}
-
 dailytoggle.onclick = function () {
     document.getElementById('hourlyforecast').style.display = "none";
     document.getElementById('dailyforecast').style.display = "flex";
 }
 
+// Finds and adds functionality to the hourly forecast button
+const hourlytoggle = document.getElementById('hourlyforecastbutton');
+hourlytoggle.onclick = function () {
+    document.getElementById('hourlyforecast').style.display = "flex";
+    document.getElementById('dailyforecast').style.display = "none";
+}
+
+// Renders placeholder location on window load
 window.onload = function () {
     weatherBalloon('Singapore')
     forecastBalloon('Singapore')
 }
-
