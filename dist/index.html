@@ -1,81 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link rel="stylesheet" href="../src/styles.css">
-</head>
+    <link rel="stylesheet" href="../src/styles.css" />
+  </head>
 
-<body>
-    <div class="content">
-        <div class="displaydiv">
-            
-            <div class="locationdetails">
-                <div class="tempswitch">
-                    <div class="temptoggle">
-                        <button class="togglebutton" id="fahrenheit">F</button>
-                        <button class="togglebutton" id="celsius">C</button>
-                    </div>
-                    <div class="tempdisplay" id="tempC"></div>
-                    <div class="tempdisplay" id="tempF"></div>
-                </div>
-                <div class="citytimeanddate">
-                    <div class="citydisplay" id="city"></div>
-                    <div class="timedatedisplay" id="timedatedisplay"></div>
-                </div>
-                <div class="currentweather" id="basicweather"></div>
+  <body>
+    <div id="content">
+      <div id="displaydiv">
+        <div class="locationdetails">
+          <div class="tempswitch">
+            <div class="temptoggle">
+              <button class="togglebutton" id="celsius">C</button>
+              <button class="togglebutton" id="fahrenheit">F</button>
             </div>
-            <div class="websitetitle">
-                <p>Weather</p>
-            </div>
+          </div>
+          <div class="tempdisplay" id="tempC"></div>
+          <div class="tempdisplay" id="tempF"></div>
+          <div class="citytimeanddate">
+            <div class="citydisplay" id="city"></div>
+            <div class="timedatedisplay" id="timedatedisplay"></div>
+          </div>
+          <div class="currentweather" id="basicweather"></div>
         </div>
-        <div class="spacer"></div>
-        <div class="infodiv">
-            <div class="locationlookup">
-                <div class="omrs-input-group">
-                    <label class="omrs-input-underlined">
-                      <input id="locationsearch" required>
-                      <span class="omrs-input-label">City</span>
-                        <span class="omrs-input-helper">Search for a city...</span>
-                    </label>
-                </div>
-
-                <!-- <label for="locationsearch" id="locationsearchlabel" class="omrs-input-underlined"></label> -->
-                <!-- <input type="text" name="locationsearch" id="locationsearch"> -->
-                <button id="searchbutton">Search</button>
-            </div>
-            <div class="weatherdetails" id="weatherdetails"></div>
-            <div id="dailyforecast">
-                <div class="forecast" id="forecast7"></div>
-                <div class="forecast" id="forecast15"></div>
-                <div class="forecast" id="forecast23"></div>
-                <div class="forecast" id="forecast31"></div>
-                <div class="forecast" id="forecast39"></div>
-            </div>
-            <div id="hourlyforecast">
-                <div class="forecast" id="forecast0"></div>
-                <div class="forecast" id="forecast1"></div>
-                <div class="forecast" id="forecast2"></div>
-                <div class="forecast" id="forecast3"></div>
-                <div class="forecast" id="forecast4"></div>
-            </div>
-            <div class="forecasttogglediv">
-                <button class="dailyforecastbutton" id="dailyforecastbutton">Daily</button>
-                <button class="hourlyforecastbutton" id="hourlyforecastbutton">Hourly</button>
-            </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="infodiv">
+        <div class="locationlookup">
+          <div class="omrs-input-group">
+            <label class="omrs-input-underlined">
+              <input id="locationsearch" required />
+              <span class="omrs-input-label">City</span>
+              <span class="omrs-input-helper">Search for a city...</span>
+            </label>
+          </div>
+          <button id="searchbutton">Search</button>
         </div>
+        <div class="weatherdetails" id="weatherdetails"></div>
+        <div id="dailyforecast">
+          <div class="forecast" id="forecast7"></div>
+          <div class="forecast" id="forecast15"></div>
+          <div class="forecast" id="forecast23"></div>
+          <div class="forecast" id="forecast31"></div>
+          <div class="forecast" id="forecast39"></div>
+        </div>
+        <div id="hourlyforecast">
+          <div class="forecast" id="forecast0"></div>
+          <div class="forecast" id="forecast1"></div>
+          <div class="forecast" id="forecast2"></div>
+          <div class="forecast" id="forecast3"></div>
+          <div class="forecast" id="forecast4"></div>
+        </div>
+        <div class="forecasttogglediv">
+          <button class="dailyforecastbutton" id="dailyforecastbutton">
+            Daily
+          </button>
+          <button class="hourlyforecastbutton" id="hourlyforecastbutton">
+            Hourly
+          </button>
+        </div>
+      </div>
     </div>
-
-
-
-    <!-- Photo by <a href="https://unsplash.com/@12photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">12photostory</a> on <a href="https://unsplash.com/s/photos/beautiful-sky-day?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <!-- Photo by <a href="https://unsplash.com/@abingol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Atilla Bingöl</a> on <a href="https://unsplash.com/s/photos/heavy-rain?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <!-- Photo by <a href="https://unsplash.com/@onnos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Adriana Sas</a> on <a href="https://unsplash.com/s/photos/cloudy-day?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-
     <script src="bundle.js"></script>
-</body>
-
+  </body>
 </html>
