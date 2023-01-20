@@ -253,52 +253,19 @@ html {
   text-transform: capitalize;
 }
 
-.websitetitle {
-  width: fit-content;
-  height: 20px;
-  padding: 10px;
-  display: flex;
-  margin-top: auto;
-  align-items: center;
-  margin-left: 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
-  border: 1px solid rgba(255, 255, 255, 0.43);
-}
-
 @media all and (max-width: 768px) {
-  .websitetitle {
-  }
-}
-
-/** SPACER **/
-
-.spacer {
-  display: flex;
-  grid-column: 2;
-  flex-grow: 2;
-  flex-shrink: 2;
 }
 
 /** RIGHT SIDE **/
 
 .infodiv {
   width: 100%;
-  grid-column: 3;
   height: fit-content;
   display: flex;
-  flex-shrink: 0;
-  min-width: 300px;
-  max-width: 450px;
   flex-direction: column;
   align-items: center;
-  margin-top: 3%;
-  margin-bottom: 3%;
   background: rgba(255, 255, 255, 0.11);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);
   border: 1px solid rgba(255, 255, 255, 0.43);
