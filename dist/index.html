@@ -11,13 +11,11 @@
   <body>
     <div id="content">
       <div id="displaydiv">
+        <div id="location-search-bar">
+          <input id="locationsearch" placeholder="Search for a city..." />
+          <button id="searchbutton">Search</button>
+        </div>
         <div class="locationdetails">
-          <div class="tempswitch">
-            <div class="temptoggle">
-              <button class="togglebutton" id="celsius">C</button>
-              <button class="togglebutton" id="fahrenheit">F</button>
-            </div>
-          </div>
           <div class="tempdisplay" id="tempC"></div>
           <div class="tempdisplay" id="tempF"></div>
           <div class="citytimeanddate">
@@ -26,19 +24,26 @@
           </div>
           <div class="currentweather" id="basicweather"></div>
         </div>
+        <div id="complex-details">
+          <li id="humidity"></li>
+          <li id="windspeed"></li>
+          <li id="airpressure"></li>
+        </div>
+
+        <div id="central-menu">
+          <div id="temperature-menu">
+            <button class="togglebutton" id="celsius">C</button>
+            <button class="togglebutton" id="fahrenheit">F</button>
+          </div>
+          <div id="forecast-menu">
+            <button class="togglebutton" id="dailyforecastbutton">Daily</button>
+            <button class="togglebutton" id="hourlyforecastbutton">
+              Hourly
+            </button>
+          </div>
+        </div>
       </div>
       <div class="infodiv">
-        <div class="locationlookup">
-          <div class="omrs-input-group">
-            <label class="omrs-input-underlined">
-              <input id="locationsearch" required />
-              <span class="omrs-input-label">City</span>
-              <span class="omrs-input-helper">Search for a city...</span>
-            </label>
-          </div>
-          <button id="searchbutton">Search</button>
-        </div>
-        <div class="weatherdetails" id="weatherdetails"></div>
         <div id="dailyforecast">
           <div class="forecast" id="forecast7"></div>
           <div class="forecast" id="forecast15"></div>
@@ -52,14 +57,6 @@
           <div class="forecast" id="forecast2"></div>
           <div class="forecast" id="forecast3"></div>
           <div class="forecast" id="forecast4"></div>
-        </div>
-        <div class="forecasttogglediv">
-          <button class="dailyforecastbutton" id="dailyforecastbutton">
-            Daily
-          </button>
-          <button class="hourlyforecastbutton" id="hourlyforecastbutton">
-            Hourly
-          </button>
         </div>
       </div>
     </div>
