@@ -80,12 +80,28 @@ function drawCurrentWeather(data) {
   );
 
   // change the theme based on predominant weather
-  if (data.weather[0].description.indexOf("rain") > 0) {
-    document.getElementById("weatherwindow").classList.add("rainy");
-  } else if (data.weather[0].description.indexOf("cloud") > 0) {
-    document.getElementById("weatherwindow").classList.add("cloudy");
+  if (data.weather[0].description.includes("thunderstorm")) {
+    document.getElementById("weatherwindow").className = "current-thunderstorm";
+  } else if (data.weather[0].description.includes("heavy rain")) {
+    document.getElementById("weatherwindow").className = "current-heavyrainy";
+  } else if (
+    data.weather[0].description.includes("rain") ||
+    data.weather[0].description.includes("drizzle")
+  ) {
+    document.getElementById("weatherwindow").className = "current-lightrainy";
+  } else if (data.weather[0].description.includes("snow")) {
+    document.getElementById("weatherwindow").className = "current-snowy";
+  } else if (
+    data.weather[0].description.includes("mist") ||
+    data.weather[0].description.includes("haze") ||
+    data.weather[0].description.includes("fog")
+  ) {
+    document.getElementById("weatherwindow").className = "current-foggy";
+  } else if (data.weather[0].description.includes("cloud")) {
+    document.getElementById("weatherwindow").className = "current-cloudy";
   } else {
-    document.getElementById("weatherwindow").classList.add("sunny");
+    // default is sunny/clear
+    document.getElementById("weatherwindow").className = "current-sunny";
   }
 }
 
@@ -120,15 +136,48 @@ function drawForecast(data, fieldindicator, interval) {
   let forecastBubble = document.getElementById(
     "forecast" + fieldindicator + "-bubble"
   );
-  if (data.list[fieldindicator].weather[0].description.indexOf("rain") > 0) {
-    forecastBubble.className = "forecastrainy";
-  } else if (
-    data.list[fieldindicator].weather[0].description.indexOf("cloud") > 0
+
+  if (
+    data.list[fieldindicator].weather[0].description.includes("thunderstorm")
   ) {
-    forecastBubble.className = "forecastcloudy";
+    forecastBubble.className = "forecast-thunderstorm";
+  } else if (
+    data.list[fieldindicator].weather[0].description.includes("heavy rain")
+  ) {
+    forecastBubble.className = "forecast-heavyrainy";
+  } else if (
+    data.list[fieldindicator].weather[0].description.includes("rain") ||
+    data.list[fieldindicator].weather[0].description.includes("drizzle")
+  ) {
+    forecastBubble.className = "forecast-lightrainy";
+  } else if (
+    data.list[fieldindicator].weather[0].description.includes("snow")
+  ) {
+    forecastBubble.className = "forecast-snowy";
+  } else if (
+    data.list[fieldindicator].weather[0].description.includes("mist") ||
+    data.list[fieldindicator].weather[0].description.includes("haze") ||
+    data.list[fieldindicator].weather[0].description.includes("fog")
+  ) {
+    forecastBubble.className = "forecast-foggy";
+  } else if (
+    data.list[fieldindicator].weather[0].description.includes("cloud")
+  ) {
+    forecastBubble.className = "forecast-cloudy";
   } else {
-    forecastBubble.className = "forecastsunny";
+    // default is sunny/clear
+    forecastBubble.className = "forecast-sunny";
   }
+
+  //   if (data.list[fieldindicator].weather[0].description.indexOf("rain") > 0) {
+  //     forecastBubble.className = "forecast-lightrainy";
+  //   } else if (
+  //     data.list[fieldindicator].weather[0].description.indexOf("cloud") > 0
+  //   ) {
+  //     forecastBubble.className = "forecast-cloudy";
+  //   } else {
+  //     forecastBubble.className = "forecast-sunny";
+  //   }
 }
 
 // Temperature toggle
