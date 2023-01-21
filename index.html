@@ -14,57 +14,92 @@
 
   <body>
     <div id="content">
-      <div id="location-search-bar">
-        <input id="locationsearch" placeholder="Search for a city..." />
-        <button id="searchbutton">Search</button>
-      </div>
-      <div id="headsup">
-        <div id="displaydiv"></div>
-        <div class="locationdetails">
-          <div class="tempdisplay" id="tempC"></div>
-          <div class="tempdisplay" id="tempF"></div>
-          <div class="citytimeanddate">
-            <div class="citydisplay" id="city"></div>
-            <div class="timedatedisplay" id="timedatedisplay"></div>
+      <div id="info-display">
+        <div id="location-search-bar">
+          <input id="locationsearch" placeholder="Search for a city..." />
+          <button id="searchbutton">Search</button>
+        </div>
+        <div id="headsup">
+          <div id="weatherwindow"></div>
+          <div class="locationdetails">
+            <div class="tempdisplay" id="tempC"></div>
+            <div class="tempdisplay" id="tempF"></div>
+            <div class="citytimeanddate">
+              <div class="citydisplay" id="city"></div>
+              <div class="timedatedisplay" id="timedatedisplay"></div>
+            </div>
+            <div class="currentweather" id="basicweather"></div>
           </div>
-          <div class="currentweather" id="basicweather"></div>
         </div>
-      </div>
 
-      <div id="complex-details">
-        <li id="humidity"></li>
-        <li id="windspeed"></li>
-        <li id="airpressure"></li>
-      </div>
-
-      <div id="central-menu">
-        <div class="mt-android">
-          <input id="temperature-toggle" type="checkbox" />
-          <label for="temperature-toggle" id="temperature-toggle-label">
-            <p>F</p>
-            <p>C</p>
-          </label>
+        <div id="complex-details">
+          <li id="humidity"></li>
+          <li id="windspeed"></li>
+          <li id="airpressure"></li>
         </div>
-        <div id="forecast-menu">
-          <button class="togglebutton" id="dailyforecastbutton">Daily</button>
-          <button class="togglebutton" id="hourlyforecastbutton">Hourly</button>
+
+        <div id="central-menu">
+          <div class="mt-android">
+            <input id="temperature-toggle" type="checkbox" />
+            <label for="temperature-toggle" id="temperature-toggle-label">
+              <p>F</p>
+              <p>C</p>
+            </label>
+          </div>
+          <div id="forecast-menu">
+            <button class="togglebutton" id="dailyforecastbutton">Daily</button>
+            <button class="togglebutton" id="hourlyforecastbutton">
+              Hourly
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="infodiv">
         <div id="dailyforecast">
-          <div class="forecast" id="forecast7"></div>
-          <div class="forecast" id="forecast15"></div>
-          <div class="forecast" id="forecast23"></div>
-          <div class="forecast" id="forecast31"></div>
-          <div class="forecast" id="forecast39"></div>
+          <div class="forecast-bubble">
+            <div id="forecast7" class="forecast-info-display"></div>
+            <div id="forecast7-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast15" class="forecast-info-display"></div>
+            <div id="forecast15-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast23" class="forecast-info-display"></div>
+            <div id="forecast23-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast31" class="forecast-info-display"></div>
+            <div id="forecast31-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast39" class="forecast-info-display"></div>
+            <div id="forecast39-bubble" class="forecastcloudy"></div>
+          </div>
         </div>
+
         <div id="hourlyforecast">
-          <div class="forecast" id="forecast0"></div>
-          <div class="forecast" id="forecast1"></div>
-          <div class="forecast" id="forecast2"></div>
-          <div class="forecast" id="forecast3"></div>
-          <div class="forecast" id="forecast4"></div>
+          <div class="forecast-bubble">
+            <div id="forecast0" class="forecast-info-display"></div>
+            <div id="forecast0-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast1" class="forecast-info-display"></div>
+            <div id="forecast1-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast2" class="forecast-info-display"></div>
+            <div id="forecast2-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast3" class="forecast-info-display"></div>
+            <div id="forecast3-bubble" class="forecastcloudy"></div>
+          </div>
+          <div class="forecast-bubble">
+            <div id="forecast4" class="forecast-info-display"></div>
+            <div id="forecast4-bubble" class="forecastcloudy"></div>
+          </div>
         </div>
       </div>
     </div>
