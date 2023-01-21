@@ -1,8 +1,5 @@
 import "./styles.css";
 import { format } from "date-fns";
-import SunnyDay from "./assets/beautifulday.jpg";
-import RainyDay from "./assets/rainyday.jpg";
-import CloudyDay from "./assets/cloudyday.jpg";
 
 // finds basic information about the city
 function weatherBalloon(city) {
@@ -84,11 +81,11 @@ function drawCurrentWeather(data) {
 
   // change the theme based on predominant weather
   if (data.weather[0].description.indexOf("rain") > 0) {
-    document.getElementById("displaydiv").classList.add("rainy");
+    document.getElementById("weatherwindow").classList.add("rainy");
   } else if (data.weather[0].description.indexOf("cloud") > 0) {
-    document.getElementById("displaydiv").classList.add("cloudy");
+    document.getElementById("weatherwindow").classList.add("cloudy");
   } else {
-    document.getElementById("displaydiv").classList.add("sunny");
+    document.getElementById("weatherwindow").classList.add("sunny");
   }
 }
 
@@ -120,18 +117,21 @@ function drawForecast(data, fieldindicator, interval) {
   forecastfield.innerHTML = datetime + tempasC + tempasF + weather;
 
   // change the theme based on predominant weather
+  let forecastBubble = document.getElementById(
+    "forecast" + fieldindicator + "-bubble"
+  );
   if (data.list[fieldindicator].weather[0].description.indexOf("rain") > 0) {
-    forecastfield.className = "forecastrainy";
+    forecastBubble.className = "forecastrainy";
   } else if (
     data.list[fieldindicator].weather[0].description.indexOf("cloud") > 0
   ) {
-    forecastfield.className = "forecastcloudy";
+    forecastBubble.className = "forecastcloudy";
   } else {
-    forecastfield.className = "forecastsunny";
+    forecastBubble.className = "forecastsunny";
   }
 }
 
-// Alternate Temperature toggle
+// Temperature toggle
 const temperatureToggle = document.getElementById("temperature-toggle");
 temperatureToggle.addEventListener("change", (event) => {
   if (event.target.checked) {
@@ -192,6 +192,6 @@ hourlytoggle.onclick = function () {
 
 // Renders placeholder location on window load
 window.onload = function () {
-  weatherBalloon("Singapore");
-  forecastBalloon("Singapore");
+  weatherBalloon("Ho Chi Minh City");
+  forecastBalloon("Ho Chi Minh City");
 };

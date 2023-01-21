@@ -20,9 +20,16 @@
 
 body,
 html {
-  height: auto;
+  height: 100%;
   width: 100%;
   margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--central-menu);
 }
 
 /** INPUT STYLING **/
@@ -43,7 +50,6 @@ html {
 }
 #searchbutton {
   color: black;
-  /* padding: 1em 2em; */
   text-align: center;
   display: flex;
   align-items: center;
@@ -64,27 +70,47 @@ html {
   display: flex;
   flex-direction: column;
   background-color: var(--main-background);
+  max-width: 1080px;
+  /* max-height: 720px; */
+  margin: auto;
+  transition: 0.5s ease-out;
 }
 
-@media all and (max-width: 768px) {
+#info-display {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media all and (min-width: 780px) {
+  #content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 50px;
+  }
 }
 
 .rainy {
-  background-image: url(./assets/rainyday.jpg);
+  background-image: url(./assets/rainy.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .sunny {
-  background-image: url(./assets/beautifulday.jpg);
+  background-image: url(./assets/clear.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .cloudy {
-  background-image: url(./assets/cloudyday.jpg);
+  background-image: url(./assets/cloudy.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -102,24 +128,36 @@ html {
   justify-content: center;
 }
 
-#displaydiv {
+#weatherwindow {
   height: 10em;
   width: 10em;
   border-radius: 50%;
   display: flex;
   flex-shrink: 0;
-  margin-left: auto;
-  /* flex-grow: 1; */
-  /* display: flex; */
+  margin: auto 0;
+  /* margin-left: auto; */
 }
 
 @media all and (max-width: 768px) {
+  #weatherwindow {
+    height: 8em;
+    width: 8em;
+  }
+}
+
+@media all and (max-width: 320px) {
+  #weatherwindow {
+    height: 7em;
+    width: 7em;
+    margin-left: 1em;
+  }
 }
 
 .locationdetails {
   height: fit-content;
   width: 200px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -153,13 +191,14 @@ html {
 
 .citydisplay {
   display: flex;
-  padding: 0 20px 20px 20px;
+  padding: 0 10px 10px 10px;
 
   width: fit-content;
   height: fit-content;
   color: var(--font-on-light);
   margin: auto;
   font-size: 1.5em;
+  text-align: center;
 }
 
 .timedatedisplay {
@@ -180,7 +219,7 @@ html {
   width: fit-content;
   color: var(--font-on-light);
   font-size: 1em;
-  padding: 20px;
+  padding: 10px;
 }
 
 #basicweather {
@@ -191,9 +230,25 @@ html {
 }
 
 /** BOTTOM INFO **/
+.forecast-bubble {
+  display: flex;
+  width: 100%;
+  padding: 0.5em;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.forecast-info-display {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-right: auto;
+  justify-content: center;
+}
 
 .infodiv {
   width: 100%;
+  max-width: 350px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -208,14 +263,14 @@ html {
 }
 
 #complex-details li {
-  width: 100px;
+  width: fit-content;
   height: 50px;
   background-color: white;
   color: var(--font-on-light);
-  /* border: 1px solid black; */
   display: flex;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .weatherdetails {
@@ -237,32 +292,25 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: black;
-  height: fit-content;
-  width: 80%;
-  border: 1px solid black;
-  /* border-radius: 10px; */
-  padding: 10px;
-  /* margin: 5px; */
-  text-transform: capitalize;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  margin: 0 1em;
 }
 .forecastrainy {
-  background-image: url(./assets/rainyday.jpg);
+  background-image: url(./assets/rainy.svg);
 }
 
 .forecastcloudy {
-  background-image: url(./assets/cloudyday.jpg);
-  text-align: right;
+  background-image: url(./assets/cloudy.svg);
 }
 
 .forecastsunny {
-  background-image: url(./assets/beautifulday.jpg);
-  text-align: center;
+  background-image: url(./assets/clear.svg);
 }
 
 /** CENTRAL MENU **/
 #temperature-toggle-label {
-  /* overflow: hidden; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -275,6 +323,7 @@ html {
   height: 50px;
   align-items: center;
   justify-content: space-evenly;
+  max-width: 400px;
 }
 
 .tempasF {
@@ -285,22 +334,22 @@ html {
   display: block;
 }
 
-/* #temperature-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-} */
-
 #dailyforecast,
 #hourlyforecast {
   width: 100%;
+  /* max-width: 350px; */
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   padding: 1em;
   box-sizing: border-box;
+  gap: 0.5em;
+}
+@media all and (min-width: 780px) {
+  #dailyforecast,
+  #hourlyforecast {
+    gap: 1em;
+  }
 }
 
 #forecast-menu {
