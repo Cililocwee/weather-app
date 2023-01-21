@@ -12,9 +12,10 @@
   --large-margin: 2em;
 
   --main-background: white;
-  --font-on-light: black;
+  --font-on-light: #4e5a65;
   --font-on-dark: white;
-  --central-menu: darkblue;
+  --central-menu: #7b7090;
+  --soft-gray: #c6ccd3;
 }
 
 body,
@@ -36,12 +37,11 @@ html {
 
 #locationsearch {
   height: 2em;
-  background-color: lightgray;
-  border: 1px solid lightslategray;
+  background-color: var(--soft-gray);
+  border: 2px solid var(--soft-gray);
   border-right: none;
 }
 #searchbutton {
-  background: rgba(0, 0, 0, 0.1);
   color: black;
   /* padding: 1em 2em; */
   text-align: center;
@@ -52,6 +52,7 @@ html {
   border-radius: 0 6px 6px 0;
   border: none;
   box-sizing: border-box;
+  padding: 1em;
 }
 
 /** MAIN CONTENT  **/
@@ -240,9 +241,9 @@ html {
   height: fit-content;
   width: 80%;
   border: 1px solid black;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 10px;
-  margin: 5px;
+  /* margin: 5px; */
   text-transform: capitalize;
 }
 .forecastrainy {
@@ -318,8 +319,8 @@ html {
 }
 
 .togglebutton {
+  color: var(--font-on-light);
   width: 50%;
-  color: black;
   padding: 1em 2em;
   text-align: center;
   text-decoration: none;
@@ -328,4 +329,5 @@ html {
   height: 2.5em;
   justify-content: center;
   align-items: center;
+  border: none;
 }
