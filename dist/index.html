@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="../src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/JNKKKK/MoreToggles.css@0.2.1/output/moretoggles.min.css"
+    />
   </head>
 
   <body>
@@ -31,9 +35,16 @@
         </div>
 
         <div id="central-menu">
-          <div id="temperature-menu">
+          <!-- <div id="temperature-menu">
             <button class="togglebutton" id="celsius">C</button>
             <button class="togglebutton" id="fahrenheit">F</button>
+          </div> -->
+          <div class="mt-android">
+            <input id="temperature-toggle" type="checkbox" />
+            <label for="temperature-toggle" id="temperature-toggle-label">
+              <p>F</p>
+              <p>C</p>
+            </label>
           </div>
           <div id="forecast-menu">
             <button class="togglebutton" id="dailyforecastbutton">Daily</button>
@@ -43,6 +54,7 @@
           </div>
         </div>
       </div>
+
       <div class="infodiv">
         <div id="dailyforecast">
           <div class="forecast" id="forecast7"></div>
