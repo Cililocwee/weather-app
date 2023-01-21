@@ -131,45 +131,10 @@ function drawForecast(data, fieldindicator, interval) {
   }
 }
 
-//!! Deprecated
-// Finds and adds functionality to the F button
-// const fahrentheitbutton = document.getElementById("fahrenheit");
-// fahrentheitbutton.onclick = function () {
-//   document.getElementById("tempC").style.display = "none";
-//   document.getElementById("tempF").style.display = "block";
-
-//   let tempClist = document.querySelectorAll(".tempasC");
-//   for (let i = 0; i < tempClist.length; i++) {
-//     tempClist[i].style.display = "none";
-//   }
-//   let tempFlist = document.querySelectorAll(".tempasF");
-//   for (let i = 0; i < tempFlist.length; i++) {
-//     tempFlist[i].style.display = "block";
-//   }
-// };
-
-//!! Deprecated
-// Finds and adds functionality to the C button
-// const celsiusbutton = document.getElementById("celsius");
-// celsiusbutton.onclick = function () {
-//   document.getElementById("tempF").style.display = "none";
-//   document.getElementById("tempC").style.display = "block";
-
-//   let tempFlist = document.querySelectorAll(".tempasF");
-//   for (let i = 0; i < tempFlist.length; i++) {
-//     tempFlist[i].style.display = "none";
-//   }
-//   let tempClist = document.querySelectorAll(".tempasC");
-//   for (let i = 0; i < tempClist.length; i++) {
-//     tempClist[i].style.display = "block";
-//   }
-// };
-
 // Alternate Temperature toggle
 const temperatureToggle = document.getElementById("temperature-toggle");
 temperatureToggle.addEventListener("change", (event) => {
   if (event.target.checked) {
-    // console.log("F");
     document.getElementById("tempC").style.display = "none";
     document.getElementById("tempF").style.display = "block";
 
@@ -182,7 +147,6 @@ temperatureToggle.addEventListener("change", (event) => {
       tempFlist[i].style.display = "block";
     }
   } else {
-    // console.log("C");
     document.getElementById("tempF").style.display = "none";
     document.getElementById("tempC").style.display = "block";
 
